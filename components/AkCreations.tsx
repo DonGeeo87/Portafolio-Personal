@@ -29,7 +29,7 @@ const AkCreations: React.FC = () => {
             className="bg-zinc-900 border border-gray-800 rounded-xl overflow-hidden group"
           >
             <div className="h-48 overflow-hidden">
-              <img src="/Portafolio-Personal/images/ak-creaciones/emprendedores-artesanos.jpg" alt="Exhibidores para aros en madera" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+              <img src={`${import.meta.env.BASE_URL}images/ak-creaciones/emprendedores-artesanos.jpg`} alt="Exhibidores para aros en madera" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
             </div>
             <div className="p-6">
               <h3 className="text-xl font-bold text-white mb-2">Productos para Emprendedores y Artesanos</h3>
@@ -44,7 +44,7 @@ const AkCreations: React.FC = () => {
             className="bg-zinc-900 border border-gray-800 rounded-xl overflow-hidden group"
           >
             <div className="h-48 overflow-hidden">
-              <img src="/Portafolio-Personal/images/ak-creaciones/turismolocal.jpg" alt="Souvenirs Turísticos" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+              <img src={`${import.meta.env.BASE_URL}images/ak-creaciones/turismolocal.jpg`} alt="Souvenirs Turísticos" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
             </div>
             <div className="p-6">
               <h3 className="text-xl font-bold text-white mb-2">Turismo Local</h3>
@@ -62,7 +62,7 @@ const AkCreations: React.FC = () => {
               <div className="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity z-10">
                 <QrCode className="text-amber w-12 h-12" />
               </div>
-              <img src="/Portafolio-Personal/images/ak-creaciones/NFC QR.jpg" alt="Tecnología NFC" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+              <img src={`${import.meta.env.BASE_URL}images/ak-creaciones/NFC QR.jpg`} alt="Tecnología NFC" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
             </div>
             <div className="p-6">
               <h3 className="text-xl font-bold text-white mb-2">Smart Wood (NFC/QR)</h3>

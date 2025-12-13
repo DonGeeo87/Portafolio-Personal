@@ -14,6 +14,18 @@ import {
   Facebook 
 } from 'lucide-react';
 
+// Helper para rutas de imágenes que funciona en desarrollo y producción
+const getImagePath = (path: string): string => {
+  const baseUrl = import.meta.env.BASE_URL;
+  // Remover el prefijo /Portafolio-Personal/ si existe y agregar el baseUrl correcto
+  const cleanPath = path.startsWith('/Portafolio-Personal/') 
+    ? path.replace('/Portafolio-Personal/', '') 
+    : path.startsWith('/') 
+    ? path.slice(1) 
+    : path;
+  return `${baseUrl}${cleanPath}`;
+};
+
 export const SOCIAL_LINKS: SocialLink[] = [
   {
     name: "LinkedIn",
@@ -74,7 +86,7 @@ export const PROJECTS: Project[] = [
     status: ProjectStatus.Beta,
     githubUrl: "https://github.com/DonGeeo87/Negocio-Listo-Android-App",
     demoUrl: "https://app-negocio-listo.web.app/landing",
-    imageUrl: "/Portafolio-Personal/images/projects/NegocioListo-web-screenshot.png",
+    imageUrl: getImagePath("images/projects/NegocioListo-web-screenshot.png"),
     highlight: true
   },
   {
@@ -84,7 +96,7 @@ export const PROJECTS: Project[] = [
     status: ProjectStatus.Live,
     githubUrl: "https://github.com/DonGeeo87/Mis-Gastos-App",
     demoUrl: "https://dongeeo87.github.io/Mis-Gastos-App/",
-    imageUrl: "/Portafolio-Personal/images/projects/MisGastosApp-web-screenshot.png"
+    imageUrl: getImagePath("images/projects/MisGastosApp-web-screenshot.png")
   },
   {
     title: "Juguetes Digitales",
@@ -93,7 +105,7 @@ export const PROJECTS: Project[] = [
     status: ProjectStatus.MVP,
     githubUrl: "https://github.com/DonGeeo87/Jueguetes-Digitales",
     demoUrl: "https://jueguetes-digitales.vercel.app/",
-    imageUrl: "/Portafolio-Personal/images/projects/JueguetesDigitales-web-screenshot.png"
+    imageUrl: getImagePath("images/projects/JueguetesDigitales-web-screenshot.png")
   },
   {
     title: "Web Jess",
@@ -102,7 +114,7 @@ export const PROJECTS: Project[] = [
     status: ProjectStatus.Live,
     githubUrl: "https://github.com/DonGeeo87/Web-Jess",
     demoUrl: "https://dongeeo87.github.io/Web-Jess/",
-    imageUrl: "/Portafolio-Personal/images/projects/JessVitrofusion-web-screenshot.png"
+    imageUrl: getImagePath("images/projects/JessVitrofusion-web-screenshot.png")
   },
   {
     title: "Raulif - Parque La Campana",
@@ -111,7 +123,7 @@ export const PROJECTS: Project[] = [
     status: ProjectStatus.Live,
     githubUrl: "https://github.com/DonGeeo87/Raulif-Parque-La-Campana",
     demoUrl: "https://dongeeo87.github.io/Raulif-Parque-La-Campana/",
-    imageUrl: "/Portafolio-Personal/images/projects/Raulif-web-screenshot.png"
+    imageUrl: getImagePath("images/projects/Raulif-web-screenshot.png")
   },
   {
     title: "FlashMaster Chile",
@@ -120,7 +132,7 @@ export const PROJECTS: Project[] = [
     status: ProjectStatus.MVP,
     githubUrl: "https://github.com/DonGeeo87/FlashMaster-Chile",
     demoUrl: "https://dongeeo87.github.io/FlashMaster-Chile/",
-    imageUrl: "/Portafolio-Personal/images/projects/FlashMasterChile-web-screenshot.png"
+    imageUrl: getImagePath("images/projects/FlashMasterChile-web-screenshot.png")
   }
 ];
 

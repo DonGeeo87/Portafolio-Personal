@@ -4,8 +4,10 @@ import react from '@vitejs/plugin-react';
 
 export default defineConfig(({ mode }) => {
     const env = loadEnv(mode, '.', '');
+    // Solo usar base path en producción (build), en desarrollo usar '/'
+    const isProduction = mode === 'production';
     return {
-      base: '/Portafolio-Personal/',
+      base: isProduction ? '/Portafolio-Personal/' : '/',
       server: {
         port: 3000,
         host: '0.0.0.0',
