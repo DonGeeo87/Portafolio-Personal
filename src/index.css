@@ -1,0 +1,50 @@
+@import './styles/globals.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+  }
+}
+
+@layer utilities {
+  .glass-card {
+    background: var(--surface-card);
+    border: 1px solid var(--surface-border);
+    backdrop-filter: var(--blur-glass);
+  }
+  
+  .glass-card-hover {
+    background: var(--surface-card-hover);
+  }
+}
+
+/* Asegurar que las categorías de proyectos no tengan fondo */
+#portafolio .font-mono {
+  background-color: transparent !important;
+  background: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--surface-border);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-primary);
+}

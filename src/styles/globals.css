@@ -1,0 +1,51 @@
+:root {
+  /* ===============================
+     COLOR SYSTEM
+     =============================== */
+
+  /* Backgrounds */
+  --bg-primary: #05050A;
+  --bg-secondary: #0B0E1A;
+  --bg-tertiary: #121528;
+
+  /* Surfaces */
+  --surface-card: rgba(255, 255, 255, 0.04);
+  --surface-card-hover: rgba(255, 255, 255, 0.08);
+  --surface-border: rgba(255, 255, 255, 0.08);
+
+  /* Text */
+  --text-primary: #FFFFFF;
+  --text-secondary: rgba(255, 255, 255, 0.7);
+  --text-muted: rgba(255, 255, 255, 0.45);
+
+  /* Accents */
+  --accent-primary: #7C5CFF;
+  --accent-secondary: #4D9FFF;
+  --accent-tertiary: #2EE6A6;
+
+  /* Gradients */
+  --gradient-primary: linear-gradient(135deg, #7C5CFF 0%, #4D9FFF 100%);
+  --gradient-glow: radial-gradient(
+    circle at center,
+    rgba(124, 92, 255, 0.4),
+    transparent 70%
+  );
+
+  /* ===============================
+     TYPOGRAPHY
+     =============================== */
+
+  --font-primary: 'Inter', system-ui, sans-serif;
+  --font-secondary: 'Space Grotesk', system-ui, sans-serif;
+
+  /* ===============================
+     RADIUS & EFFECTS
+     =============================== */
+
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 20px;
+  --radius-full: 999px;
+
+  --blur-glass: blur(12px);
+}
