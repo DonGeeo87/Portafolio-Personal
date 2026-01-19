@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
-import { Menu, X } from 'lucide-react'
+import { Menu, X, Rocket } from 'lucide-react'
 import Button from './ui/Button'
+import { motion, AnimatePresence } from 'framer-motion'
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -18,117 +19,113 @@ const Navbar = () => {
     { href: '#inicio', label: 'Inicio' },
     { href: '#sobre-mi', label: 'Sobre Mí' },
     { href: '#servicios', label: 'Servicios' },
-    { href: '#portafolio', label: 'Portafolio' },
+    { href: '#portafolio', label: 'Proyectos' },
     { href: '#contacto', label: 'Contacto' },
   ]
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled 
-          ? 'bg-[rgba(5,5,10,0.6)] shadow-soft' 
-          : 'bg-[rgba(5,5,10,0.3)]'
-      }`}
-      style={{ 
-        height: '72px',
-        backdropFilter: 'blur(12px)',
-        WebkitBackdropFilter: 'blur(12px)',
-        borderBottom: scrolled ? '1px solid rgba(255, 255, 255, 0.08)' : 'none'
-      }}
+      className={`fixed left-0 right-0 z-50 transition-all duration-500 px-4 pt-4`}
     >
-      <div className="container h-full">
+      <div
+        className={`mx-auto max-w-6xl transition-all duration-500 rounded-2xl border ${scrolled
+          ? 'bg-bg-primary/70 backdrop-blur-xl border-white/10 shadow-glow py-2 px-6'
+          : 'bg-transparent border-transparent py-4 px-2'
+          }`}
+      >
         <div className="flex items-center justify-between h-full">
-          <div className="flex-shrink-0">
-            <a 
-              href="#inicio" 
-              className="text-2xl font-heading font-bold"
-              style={{
-                background: 'linear-gradient(135deg, #7C5CFF 0%, #4D9FFF 100%)',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-                backgroundClip: 'text',
-                textShadow: '0 0 20px rgba(124, 92, 255, 0.5)',
-                filter: 'drop-shadow(0 0 10px rgba(124, 92, 255, 0.6))',
-              }}
+          <motion.div
+            className="flex-shrink-0"
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+          >
+            <a
+              href="#inicio"
+              className="group flex items-center gap-2 text-xl font-heading font-bold"
             >
-              GIP
+              <div className="p-1.5 rounded-lg bg-gradient-primary group-hover:rotate-12 transition-transform">
+                <Rocket size={18} className="text-white" />
+              </div>
+              <span className="bg-gradient-primary bg-clip-text text-transparent filter drop-shadow-[0_0_8px_rgba(124,92,255,0.4)]">
+                GIP
+              </span>
             </a>
-          </div>
+          </motion.div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-4">
-              {navItems.map((item) => (
-                <a
+            <div className="flex items-center gap-1">
+              {navItems.map((item, i) => (
+                <motion.a
                   key={item.href}
                   href={item.href}
-                  className="text-text-secondary hover:text-accent-primary px-3 py-2 rounded-md text-sm font-medium transition-all duration-300 smooth"
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.textShadow = '0 0 10px rgba(124, 92, 255, 0.6)'
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.textShadow = 'none'
-                  }}
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: i * 0.1 }}
+                  className="relative text-text-secondary hover:text-white px-4 py-2 rounded-xl text-sm font-medium transition-all group overflow-hidden"
                 >
-                  {item.label}
-                </a>
+                  <span className="relative z-10">{item.label}</span>
+                  <div className="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <div className="absolute bottom-1 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-accent-primary group-hover:w-4 transition-all" />
+                </motion.a>
               ))}
             </div>
           </div>
 
           {/* Desktop CTA */}
           <div className="hidden md:block">
-            <Button href="#contacto" variant="primary">
-              Contactar
-            </Button>
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+            >
+              <Button href="#contacto" variant="primary" size="sm" className="shadow-glow-primary">
+                Hablemos
+              </Button>
+            </motion.div>
           </div>
 
           {/* Mobile menu button */}
           <div className="md:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-text-secondary hover:text-accent-primary focus:outline-none transition-colors"
+              className="p-2 text-text-secondary hover:text-white rounded-xl bg-white/5 border border-white/10 transition-colors"
             >
-              {isOpen ? <X size={24} /> : <Menu size={24} />}
+              {isOpen ? <X size={20} /> : <Menu size={20} />}
             </button>
           </div>
         </div>
       </div>
 
       {/* Mobile Navigation */}
-      {isOpen && (
-        <div className="md:hidden">
-          <div 
-            className="px-2 pt-2 pb-3 space-y-1 bg-[rgba(5,5,10,0.95)]"
-            style={{
-              backdropFilter: 'blur(12px)',
-              WebkitBackdropFilter: 'blur(12px)',
-            }}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            className="md:hidden mt-2 p-2 bg-bg-primary/90 backdrop-blur-2xl rounded-2xl border border-white/10 shadow-2xl"
           >
-            {navItems.map((item) => (
-              <a
-                key={item.href}
-                href={item.href}
-                onClick={() => setIsOpen(false)}
-                className="text-text-secondary hover:text-accent-primary block px-3 py-2 rounded-md text-base font-medium transition-all duration-300 smooth"
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.textShadow = '0 0 10px rgba(124, 92, 255, 0.6)'
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.textShadow = 'none'
-                }}
-              >
-                {item.label}
-              </a>
-            ))}
-            <div className="px-3 py-2">
-              <Button href="#contacto" variant="primary" className="w-full">
-                Contactar
-              </Button>
+            <div className="space-y-1">
+              {navItems.map((item) => (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  onClick={() => setIsOpen(false)}
+                  className="flex items-center gap-3 text-text-secondary hover:text-white px-4 py-3 rounded-xl hover:bg-white/5 transition-all font-medium"
+                >
+                  <div className="w-1 h-1 rounded-full bg-accent-primary opacity-0 group-hover:opacity-100" />
+                  {item.label}
+                </a>
+              ))}
+              <div className="pt-2">
+                <Button href="#contacto" variant="primary" className="w-full" onClick={() => setIsOpen(false)}>
+                  Hablemos
+                </Button>
+              </div>
             </div>
-          </div>
-        </div>
-      )}
+          </motion.div>
+        )}
+      </AnimatePresence>
     </nav>
   )
 }

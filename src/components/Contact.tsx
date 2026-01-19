@@ -14,30 +14,27 @@ const Contact = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    const message = encodeURIComponent(
-      `Hola Giorgio! 👋\n\n*Nombre:* ${formData.name}\n*Email:* ${formData.email}\n\n*Mensaje:*\n${formData.message}`
-    )
-    window.open(`https://wa.me/56939688275?text=${message}`, '_blank')
+    // Redirigir a Messenger con el ID específico
+    window.open(`https://m.me/100071775141585`, '_blank')
   }
 
   const socialLinks = [
     { icon: <Mail size={20} />, href: 'mailto:giorgio.interdonato@gmail.com', label: 'Email' },
     { icon: <Github size={20} />, href: 'https://github.com/DonGeeo87', label: 'GitHub' },
-    { icon: <Linkedin size={20} />, href: '#', label: 'LinkedIn' },
-    { icon: <Globe size={20} />, href: '#', label: 'Website' },
+    { icon: <Linkedin size={20} />, href: 'https://www.linkedin.com/in/giorgiointerdonato/', label: 'LinkedIn' },
   ]
 
   return (
     <Section id="contacto">
       <div className="max-w-4xl mx-auto">
-        <motion.h2 
+        <motion.h2
           className="text-3xl sm:text-4xl md:text-5xl font-heading font-bold text-center mb-4"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
         >
-          <span 
+          <span
             style={{
               background: 'linear-gradient(135deg, #7C5CFF 0%, #4D9FFF 100%)',
               WebkitBackgroundClip: 'text',
@@ -48,7 +45,7 @@ const Contact = () => {
             }}
           >Contacto</span>
         </motion.h2>
-        <motion.p 
+        <motion.p
           className="text-center text-text-secondary mb-12 max-w-2xl mx-auto"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -60,8 +57,8 @@ const Contact = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
           {/* Contact Form */}
-          <motion.form 
-            onSubmit={handleSubmit} 
+          <motion.form
+            onSubmit={handleSubmit}
             className="space-y-6"
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
