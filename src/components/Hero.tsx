@@ -31,7 +31,7 @@ const Hero = () => {
                 Giorgio
               </span>
               <br />
-              <span className="text-text-primary">Interdonato</span>
+              <span className="text-text-primary">Interdonato Palacios</span>
             </motion.h1>
 
             <motion.div
