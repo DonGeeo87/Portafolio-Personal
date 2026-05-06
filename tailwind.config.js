@@ -35,6 +35,18 @@ module.exports = {
           primary: 'var(--accent-primary)',
           secondary: 'var(--accent-secondary)',
           tertiary: 'var(--accent-tertiary)'
+        },
+        pop: {
+          mirada: 'var(--accent-mirada)',
+          gente: 'var(--accent-gente)',
+          puente: 'var(--accent-puente)',
+          codigo: 'var(--accent-codigo)',
+          conexion: 'var(--accent-conexion)',
+          cream: 'var(--pop-cream)',
+          ink: 'var(--pop-ink)',
+        },
+        chapter: {
+          accent: 'var(--chapter-accent)',
         }
       },
 

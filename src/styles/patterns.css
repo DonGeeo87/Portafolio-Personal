@@ -1,0 +1,136 @@
+/* Pop Art chapter background patterns */
+
+.pattern-sunburst::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: conic-gradient(
+    from 0deg,
+    rgba(var(--chapter-accent-rgb), 0.05) 0deg,
+    transparent 15deg,
+    transparent 30deg,
+    rgba(var(--chapter-accent-rgb), 0.05) 30deg,
+    transparent 45deg,
+    transparent 60deg,
+    rgba(var(--chapter-accent-rgb), 0.05) 60deg,
+    transparent 75deg,
+    transparent 90deg,
+    rgba(var(--chapter-accent-rgb), 0.05) 90deg,
+    transparent 105deg,
+    transparent 120deg,
+    rgba(var(--chapter-accent-rgb), 0.05) 120deg,
+    transparent 135deg,
+    transparent 150deg,
+    rgba(var(--chapter-accent-rgb), 0.05) 150deg,
+    transparent 165deg,
+    transparent 180deg,
+    rgba(var(--chapter-accent-rgb), 0.05) 180deg,
+    transparent 195deg,
+    transparent 210deg,
+    rgba(var(--chapter-accent-rgb), 0.05) 210deg,
+    transparent 225deg,
+    transparent 240deg,
+    rgba(var(--chapter-accent-rgb), 0.05) 240deg,
+    transparent 255deg,
+    transparent 270deg,
+    rgba(var(--chapter-accent-rgb), 0.05) 270deg,
+    transparent 285deg,
+    transparent 300deg,
+    rgba(var(--chapter-accent-rgb), 0.05) 300deg,
+    transparent 315deg,
+    transparent 330deg,
+    rgba(var(--chapter-accent-rgb), 0.05) 330deg,
+    transparent 345deg,
+    transparent 360deg
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+.pattern-halftone::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(
+    circle,
+    rgba(var(--chapter-accent-rgb), 0.06) 1px,
+    transparent 1px
+  );
+  background-size: 12px 12px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.pattern-burst::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 150%;
+  height: 150%;
+  transform: translate(-50%, -50%);
+  background: conic-gradient(
+    from 0deg,
+    rgba(var(--chapter-accent-rgb), 0.04) 0deg,
+    transparent 10deg,
+    transparent 20deg,
+    rgba(var(--chapter-accent-rgb), 0.04) 20deg,
+    transparent 30deg,
+    transparent 45deg,
+    rgba(var(--chapter-accent-rgb), 0.06) 45deg,
+    transparent 55deg,
+    transparent 72deg,
+    rgba(var(--chapter-accent-rgb), 0.04) 72deg,
+    transparent 82deg,
+    transparent 90deg,
+    rgba(var(--chapter-accent-rgb), 0.05) 90deg,
+    transparent 100deg,
+    transparent 120deg,
+    rgba(var(--chapter-accent-rgb), 0.04) 120deg,
+    transparent 135deg,
+    transparent 150deg,
+    rgba(var(--chapter-accent-rgb), 0.06) 150deg,
+    transparent 165deg,
+    transparent 180deg,
+    rgba(var(--chapter-accent-rgb), 0.04) 180deg,
+    transparent 200deg,
+    transparent 225deg,
+    rgba(var(--chapter-accent-rgb), 0.05) 225deg,
+    transparent 245deg,
+    transparent 270deg,
+    rgba(var(--chapter-accent-rgb), 0.04) 270deg,
+    transparent 290deg,
+    transparent 315deg,
+    rgba(var(--chapter-accent-rgb), 0.06) 315deg,
+    transparent 340deg,
+    transparent 360deg
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+.pattern-grid::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(var(--chapter-accent-rgb), 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(var(--chapter-accent-rgb), 0.04) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.pattern-stars::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle, rgba(var(--chapter-accent-rgb), 0.08) 2px, transparent 2px),
+    radial-gradient(circle, rgba(var(--chapter-accent-rgb), 0.05) 1.5px, transparent 1.5px),
+    radial-gradient(circle, rgba(var(--chapter-accent-rgb), 0.06) 1px, transparent 1px);
+  background-size: 80px 80px, 50px 50px, 120px 120px;
+  background-position: 20px 30px, 60px 10px, 10px 70px;
+  pointer-events: none;
+  z-index: 0;
+}

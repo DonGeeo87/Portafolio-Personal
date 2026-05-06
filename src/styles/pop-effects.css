@@ -1,0 +1,183 @@
+/* Pop Art effect utilities */
+
+/* Onomatopoeia — comic-style sound effects */
+.onomatopoeia {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 900;
+  font-size: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--chapter-accent);
+  text-shadow:
+    2px 2px 0 rgba(var(--chapter-accent-rgb), 0.3),
+    -1px -1px 0 rgba(0, 0, 0, 0.5);
+  -webkit-text-stroke: 1px rgba(0, 0, 0, 0.2);
+  paint-order: stroke fill;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Speech bubble */
+.speech-bubble {
+  position: relative;
+  background: rgba(var(--chapter-accent-rgb), 0.1);
+  border: 2px solid var(--chapter-accent);
+  border-radius: 12px;
+  padding: 16px 20px;
+}
+
+.speech-bubble-left::after {
+  content: '';
+  position: absolute;
+  left: -10px;
+  top: 50%;
+  transform: translateY(-50%);
+  border: 5px solid transparent;
+  border-right-color: var(--chapter-accent);
+}
+
+.speech-bubble-right::after {
+  content: '';
+  position: absolute;
+  right: -10px;
+  top: 50%;
+  transform: translateY(-50%);
+  border: 5px solid transparent;
+  border-left-color: var(--chapter-accent);
+}
+
+/* Action lines — radiating lines on hover */
+.action-lines {
+  position: absolute;
+  inset: -20px;
+  background: conic-gradient(
+    from 0deg,
+    rgba(var(--chapter-accent-rgb), 0.08) 0deg,
+    transparent 5deg,
+    transparent 15deg,
+    rgba(var(--chapter-accent-rgb), 0.08) 15deg,
+    transparent 20deg,
+    transparent 30deg,
+    rgba(var(--chapter-accent-rgb), 0.08) 30deg,
+    transparent 35deg,
+    transparent 45deg,
+    rgba(var(--chapter-accent-rgb), 0.08) 45deg,
+    transparent 50deg,
+    transparent 60deg,
+    rgba(var(--chapter-accent-rgb), 0.08) 60deg,
+    transparent 65deg,
+    transparent 90deg,
+    rgba(var(--chapter-accent-rgb), 0.08) 90deg,
+    transparent 95deg,
+    transparent 120deg,
+    rgba(var(--chapter-accent-rgb), 0.08) 120deg,
+    transparent 125deg,
+    transparent 150deg,
+    rgba(var(--chapter-accent-rgb), 0.08) 150deg,
+    transparent 155deg,
+    transparent 180deg,
+    rgba(var(--chapter-accent-rgb), 0.08) 180deg,
+    transparent 185deg,
+    transparent 210deg,
+    rgba(var(--chapter-accent-rgb), 0.08) 210deg,
+    transparent 215deg,
+    transparent 240deg,
+    rgba(var(--chapter-accent-rgb), 0.08) 240deg,
+    transparent 245deg,
+    transparent 270deg,
+    rgba(var(--chapter-accent-rgb), 0.08) 270deg,
+    transparent 275deg,
+    transparent 300deg,
+    rgba(var(--chapter-accent-rgb), 0.08) 300deg,
+    transparent 305deg,
+    transparent 330deg,
+    rgba(var(--chapter-accent-rgb), 0.08) 330deg,
+    transparent 335deg,
+    transparent 360deg
+  );
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 300ms ease;
+  z-index: -1;
+}
+
+.group:hover .action-lines {
+  opacity: 1;
+}
+
+/* Chapter number watermark */
+.chapter-number {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: clamp(6rem, 20vw, 12rem);
+  font-weight: 900;
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  color: rgba(var(--chapter-accent-rgb), 0.04);
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+  line-height: 1;
+}
+
+/* Halftone overlay for images */
+.halftone-overlay {
+  position: relative;
+  overflow: hidden;
+}
+
+.halftone-overlay::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(
+    circle,
+    rgba(var(--chapter-accent-rgb), 0.15) 1px,
+    transparent 1px
+  );
+  background-size: 4px 4px;
+  mix-blend-mode: multiply;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 300ms ease;
+}
+
+.halftone-overlay:hover::after {
+  opacity: 1;
+}
+
+/* Pop art text shake animation */
+@keyframes pop-shake {
+  0%, 100% { transform: translate(0, 0); }
+  25% { transform: translate(-2px, 1px); }
+  50% { transform: translate(2px, -1px); }
+  75% { transform: translate(-1px, 2px); }
+}
+
+.pop-shake-hover:hover {
+  animation: pop-shake 100ms ease;
+}
+
+/* Pop art scale burst */
+@keyframes pop-burst {
+  0% { transform: scale(0); opacity: 0; }
+  50% { transform: scale(1.2); opacity: 1; }
+  100% { transform: scale(1); opacity: 0; }
+}
+
+/* Skill bar fill animation */
+@keyframes skill-fill {
+  from { width: 0; }
+}
+
+.skill-bar-fill {
+  animation: skill-fill 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* Comic panel border animation */
+@keyframes border-glow {
+  0%, 100% { border-color: var(--chapter-accent); }
+  50% { border-color: rgba(var(--chapter-accent-rgb), 0.5); }
+}

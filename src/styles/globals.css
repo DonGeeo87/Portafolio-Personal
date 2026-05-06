@@ -18,10 +18,25 @@
   --text-secondary: rgba(255, 255, 255, 0.7);
   --text-muted: rgba(255, 255, 255, 0.45);
 
-  /* Accents */
+  /* Legacy accents (kept for compatibility) */
   --accent-primary: #7C5CFF;
   --accent-secondary: #4D9FFF;
   --accent-tertiary: #2EE6A6;
+
+  /* Pop Art chapter accents */
+  --accent-mirada: #FF6B6B;
+  --accent-gente: #FFD700;
+  --accent-puente: #00D4AA;
+  --accent-codigo: #7B68EE;
+  --accent-conexion: #FF69B4;
+
+  /* Pop Art neutrals */
+  --pop-cream: #FFF8E7;
+  --pop-ink: #1A1A2E;
+
+  /* Dynamic chapter accent (changes per section) */
+  --chapter-accent: var(--accent-mirada);
+  --chapter-accent-rgb: 255, 107, 107;
 
   /* Gradients */
   --gradient-primary: linear-gradient(135deg, #7C5CFF 0%, #4D9FFF 100%);
@@ -67,32 +82,23 @@
   }
 
   ::selection {
-    background-color: var(--accent-primary);
+    background-color: var(--chapter-accent);
     color: white;
   }
+
+  /* Dynamic chapter accent colors */
+  [data-chapter="mirada"] { --chapter-accent: #FF6B6B; --chapter-accent-rgb: 255, 107, 107; }
+  [data-chapter="gente"] { --chapter-accent: #FFD700; --chapter-accent-rgb: 255, 215, 0; }
+  [data-chapter="puente"] { --chapter-accent: #00D4AA; --chapter-accent-rgb: 0, 212, 170; }
+  [data-chapter="codigo"] { --chapter-accent: #7B68EE; --chapter-accent-rgb: 123, 104, 238; }
+  [data-chapter="conexion"] { --chapter-accent: #FF69B4; --chapter-accent-rgb: 255, 105, 180; }
 }
 
 @layer utilities {
-  .animate-blob {
-    animation: blob 7s infinite;
-  }
-  .animation-delay-2000 {
-    animation-delay: 2s;
-  }
-  .animation-delay-4000 {
-    animation-delay: 4s;
-  }
-
-  @keyframes blob {
-    0% { transform: translate(0px, 0px) scale(1); }
-    33% { transform: translate(30px, -50px) scale(1.1); }
-    66% { transform: translate(-20px, 20px) scale(0.9); }
-    100% { transform: translate(0px, 0px) scale(1); }
-  }
-
   .text-glow-primary { text-shadow: var(--glow-primary); }
   .text-glow-secondary { text-shadow: var(--glow-secondary); }
   .text-glow-tertiary { text-shadow: var(--glow-tertiary); }
+  .text-glow-chapter { text-shadow: 0 0 20px rgba(var(--chapter-accent-rgb), 0.4); }
 
   .glass-card {
     background: var(--surface-card);
@@ -103,7 +109,16 @@
 
   .glass-card-hover:hover {
     background: var(--surface-card-hover);
-    border-color: var(--accent-primary);
-    box-shadow: var(--glow-primary);
+    border-color: var(--chapter-accent);
+    box-shadow: 0 0 20px rgba(var(--chapter-accent-rgb), 0.4);
+  }
+
+  .comic-border {
+    border: 3px solid var(--chapter-accent);
+    border-radius: 4px;
+  }
+
+  .panel-gutter {
+    gap: 6px;
   }
 }
