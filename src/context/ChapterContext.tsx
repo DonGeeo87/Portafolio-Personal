@@ -30,6 +30,7 @@ export function ChapterProvider({ children }: { children: ReactNode }) {
   )
 }
 
+// eslint-disable-next-line react-refresh/only-export-components
 export function useChapter() {
   const context = useContext(ChapterContext)
   if (!context) throw new Error('useChapter must be used within ChapterProvider')
