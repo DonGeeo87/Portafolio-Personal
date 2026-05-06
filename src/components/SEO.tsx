@@ -10,8 +10,8 @@ interface SEOProps {
 
 const SEO = ({
     title = "Giorgio Interdonato | Código Guerrero Dev",
-    description = "Portafolio profesional de Giorgio Interdonato, desarrollador senior y creador de contenido técnico. Especialista en Android, React y soluciones digitales de alto impacto.",
-    keywords = "Giorgio Interdonato, Código Guerrero Dev, Desarrollador Android, Kotlin, React Specialist, Software Engineer Chile, Portfolio IT, Mentoria Programación",
+    description = "Portafolio profesional de Giorgio Interdonato — Comunicador Audiovisual, Ingeniero en Administración de RRHH y Desarrollador Android Trainee. Emprendedor, creador de contenido digital y autodidacta desde Valparaíso, Chile.",
+    keywords = "Giorgio Interdonato, Código Guerrero Dev, Comunicador Audiovisual, Ingeniero RRHH, Desarrollador Android Trainee, Kotlin, React, Portafolio Chile, Vibecoding, Autodidacta, AK Creaciones, Lanza tu Marca Digital",
     image = "/images/projects/codigoguerrerodev.png",
     url = "https://codigoguerrerodev.web.app/"
 }: SEOProps) => {
@@ -27,7 +27,7 @@ const SEO = ({
             "https://www.linkedin.com/in/giorgiointerdonato/",
             "https://www.instagram.com/ak.creaciones/"
         ],
-        "jobTitle": "Senior Software Engineer & Content Creator",
+        "jobTitle": "Comunicador Audiovisual | Ingeniero en Administración de RRHH | Desarrollador Android Trainee",
         "worksFor": {
             "@type": "Organization",
             "name": "Freelance"
